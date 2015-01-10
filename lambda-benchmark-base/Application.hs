@@ -14,6 +14,8 @@ import           Database.Persist.Postgresql               (createPostgresqlPool
                                                             runSqlPool)
 import           Import
 import           LambdaCms.Core
+import           LambdaBenchmark.Employee
+import           LambdaBenchmark.Project
 import           LambdaCms.Core.Settings                   (generateUUID)
 import           Language.Haskell.TH.Syntax                (qLocation)
 import           Network.Wai.Handler.Warp                  (Settings,
@@ -72,6 +74,8 @@ makeFoundation appSettings' = do
                                         , appLogger      = appLogger'
                                         , appConnPool    = appConnPool'
                                         , getLambdaCms   = CoreAdmin
+                                        , getEmployeeAdmin = EmployeeAdmin
+                                        , getProjectAdmin = ProjectAdmin
                                         }
         tempFoundation = mkFoundation $ error "connPool forced in tempFoundation"
         logFunc = messageLoggerSource tempFoundation appLogger'
@@ -83,7 +87,7 @@ makeFoundation appSettings' = do
 
     let theFoundation = mkFoundation pool
     runLoggingT
-        (runSqlPool (mapM_ runMigration [migrateAll, migrateLambdaCmsCore]) pool)
+        (runSqlPool (mapM_ runMigration [migrateAll, migrateLambdaCmsCore, migrateLambdaBenchmarkEmployee,  migrateLambdaBenchmarkProject]) pool)
         (messageLoggerSource theFoundation appLogger')
 
     let admin = appAdmin appSettings'

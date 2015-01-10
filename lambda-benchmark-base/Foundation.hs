@@ -14,6 +14,8 @@ import Yesod.Default.Util   (addStaticContentExternal)
 import qualified Data.Set                    as S
 import qualified Network.Wai                 as W
 import LambdaCms.Core
+import LambdaBenchmark.Employee
+import LambdaBenchmark.Project
 import Roles
 
 -- | The foundation datatype for your application. This can be a good place to
@@ -27,6 +29,8 @@ data App = App
     , appHttpManager :: Manager
     , appLogger      :: Logger
     , getLambdaCms   :: CoreAdmin
+    , getEmployeeAdmin :: EmployeeAdmin
+    , getProjectAdmin :: ProjectAdmin
     }
 
 instance HasHttpManager App where
@@ -164,6 +168,8 @@ instance LambdaCmsAdmin App where
     actionAllowedFor (AuthR _)  _                    = Unauthenticated
     actionAllowedFor (CoreAdminR (AdminStaticR _)) _ = Unauthenticated
     actionAllowedFor (CoreAdminR _) _                = Authenticated
+    actionAllowedFor (EmployeeAdminR _) _                = Authenticated
+    actionAllowedFor (ProjectAdminR _) _                = Authenticated
     actionAllowedFor _          _                    = Nobody -- allow no one by default.
 
     coreR = CoreAdminR
@@ -179,6 +185,14 @@ instance LambdaCmsAdmin App where
         mapM_ (insert_ . UserRole userId) $ S.toList rs
 
     adminMenu =  (defaultCoreAdminMenu CoreAdminR)
+                 ++ (defaultEmployeeAdminMenu EmployeeAdminR)
+                 ++ (defaultProjectAdminMenu ProjectAdminR)
     renderLanguages _ = ["en", "nl"]
 
     mayAssignRoles = return True
+
+instance LambdaBenchmarkEmployee App where
+    employeeR = EmployeeAdminR
+
+instance LambdaBenchmarkProject App where
+    projectR = ProjectAdminR

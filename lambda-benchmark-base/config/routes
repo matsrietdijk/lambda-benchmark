@@ -5,6 +5,8 @@
 
 / HomeR GET POST
 
-/admin/auth   AuthR         Auth       getAuth
-/admin/core   CoreAdminR    CoreAdmin  getLambdaCms
-/admin        AdminHomeRedirectR       GET
+/admin/auth     AuthR         Auth       getAuth
+/admin/employee EmployeeAdminR EmployeeAdmin getEmployeeAdmin
+/admin/project ProjectAdminR ProjectAdmin getProjectAdmin
+/admin/core     CoreAdminR    CoreAdmin  getLambdaCms
+/admin          AdminHomeRedirectR       GET

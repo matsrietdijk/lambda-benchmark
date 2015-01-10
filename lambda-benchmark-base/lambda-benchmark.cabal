@@ -82,6 +82,8 @@ library
                  , time
                  , lambdacms-core
                  , wai
+                 , lambdabenchmark-employee
+                 , lambdabenchmark-project
 
 executable         lambda-benchmark
     if flag(library-only)
