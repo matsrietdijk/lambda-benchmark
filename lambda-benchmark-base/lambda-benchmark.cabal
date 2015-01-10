@@ -19,6 +19,8 @@ library
                      Settings
                      Settings.StaticFiles
                      Handler.Common
+                     Handler.Employee
+                     Handler.Project
                      Handler.Home
                      Roles
 
