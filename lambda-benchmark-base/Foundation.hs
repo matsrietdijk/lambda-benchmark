@@ -176,9 +176,10 @@ instance LambdaCmsAdmin App where
     authR = AuthR
     masterHomeR = HomeR
 
-    getUserRoles userId = do
-        v <- runDB $ selectList [UserRoleUserId ==. userId] []
-        return . S.fromList $ map (userRoleRoleName . entityVal) v
+    getUserRoles userId = cachedBy cacheKey . fmap toRoleSet . runDB $ selectList [UserRoleUserId ==. userId] []
+        where
+            cacheKey = encodeUtf8 $ toPathPiece userId
+            toRoleSet = S.fromList . map (userRoleRoleName . entityVal)
 
     setUserRoles userId rs = runDB $ do
         deleteWhere [UserRoleUserId ==. userId]
