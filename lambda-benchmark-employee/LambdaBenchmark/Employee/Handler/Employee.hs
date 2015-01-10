@@ -88,5 +88,8 @@ deleteEmployeeAdminEditR employeeId = do
 employeeForm :: Maybe Employee -> UTCTime -> EmployeeForm Employee
 employeeForm mEmployee utct = renderBootstrap3 BootstrapBasicForm $ Employee
     <$> areq textField (bfs Msg.Title) (employeeTitle <$> mEmployee)
+    <*> areq textareaField (bfs Msg.Content) (employeeContent <$> mEmployee)
+    <*> areq textField (bfs Msg.Firstname) (employeeFirstname <$> mEmployee)
+    <*> areq textField (bfs Msg.Lastname) (employeeLastname <$> mEmployee)
     <*> pure (fromMaybe utct $ employeeCreatedAt <$> mEmployee)
     <*  bootstrapSubmit (BootstrapSubmit Msg.Save " btn-success " [])

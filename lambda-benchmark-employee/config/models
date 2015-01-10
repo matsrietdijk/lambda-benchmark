@@ -1,4 +1,7 @@
 Employee
     title Text
+    content Textarea
+    firstname Text
+    lastname Text
     createdAt UTCTime
     deriving Typeable Show

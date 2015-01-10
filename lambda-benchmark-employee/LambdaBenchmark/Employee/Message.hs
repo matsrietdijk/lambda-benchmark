@@ -25,6 +25,9 @@ data EmployeeMessage =
   | CreatedOn
   | ChangeEmployeeSettings
   | NoEmployeesFound
+  | Content
+  | Firstname
+  | Lastname
 
 defaultMessage :: EmployeeMessage -> Text
 defaultMessage = englishMessage
@@ -44,3 +47,6 @@ englishMessage Delete                = "Delete"
 englishMessage CreatedOn             = "Created on"
 englishMessage ChangeEmployeeSettings = "Change employee settings"
 englishMessage NoEmployeesFound       = "No employees found"
+englishMessage Content                = "Content"
+englishMessage Firstname                = "Firstname"
+englishMessage Lastname                = "Lastname"
