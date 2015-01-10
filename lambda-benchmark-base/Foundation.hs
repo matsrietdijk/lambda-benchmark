@@ -11,6 +11,10 @@ import Yesod.Auth
 import Yesod.Auth.BrowserId (authBrowserId)
 import Yesod.Core.Types     (Logger)
 import Yesod.Default.Util   (addStaticContentExternal)
+import qualified Data.Set                    as S
+import qualified Network.Wai                 as W
+import LambdaCms.Core
+import Roles
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -22,6 +26,7 @@ data App = App
     , appConnPool    :: ConnectionPool -- ^ Database connection pool.
     , appHttpManager :: Manager
     , appLogger      :: Logger
+    , getLambdaCms   :: CoreAdmin
     }
 
 instance HasHttpManager App where
@@ -71,11 +76,12 @@ instance Yesod App where
     authRoute _ = Just $ AuthR LoginR
 
     -- Routes not requiring authentication.
-    isAuthorized (AuthR _) _ = return Authorized
-    isAuthorized FaviconR _ = return Authorized
-    isAuthorized RobotsR _ = return Authorized
-    -- Default to Authorized for now.
-    isAuthorized _ _ = return Authorized
+    isAuthorized theRoute _ = do
+        mauthId <- maybeAuthId
+        wai <- waiRequest
+        y <- getYesod
+        murs <- mapM getUserRoles mauthId
+        return $ isAuthorizedTo y murs $ actionAllowedFor theRoute (W.requestMethod wai)
 
     -- This function creates static content files in the static folder
     -- and names them based on a hash of their content. This allows
@@ -118,26 +124,20 @@ instance YesodAuth App where
     type AuthId App = UserId
 
     -- Where to send a user after successful login
-    loginDest _ = HomeR
+    loginDest _ = CoreAdminR AdminHomeR
     -- Where to send a user after logout
-    logoutDest _ = HomeR
+    logoutDest _ = AuthR LoginR
     -- Override the above two destinations when a Referer: header is present
     redirectToReferer _ = True
 
-    getAuthId creds = runDB $ do
-        x <- getBy $ UniqueUser $ credsIdent creds
-        case x of
-            Just (Entity uid _) -> return $ Just uid
-            Nothing -> do
-                fmap Just $ insert User
-                    { userIdent = credsIdent creds
-                    , userPassword = Nothing
-                    }
+    getAuthId = getLambdaCmsAuthId
 
     -- You can add other plugins like BrowserID, email or OAuth here
     authPlugins _ = [authBrowserId def]
 
     authHttpManager = getHttpManager
+
+    authLayout = adminAuthLayout
 
 instance YesodAuthPersist App
 
@@ -153,3 +153,32 @@ instance RenderMessage App FormMessage where
 -- https://github.com/yesodweb/yesod/wiki/Sending-email
 -- https://github.com/yesodweb/yesod/wiki/Serve-static-files-from-a-separate-domain
 -- https://github.com/yesodweb/yesod/wiki/i18n-messages-in-the-scaffolding
+
+instance LambdaCmsAdmin App where
+    type Roles App = RoleName
+
+    actionAllowedFor (FaviconR) "GET"                = Unauthenticated
+    actionAllowedFor (RobotsR)  "GET"                = Unauthenticated
+    actionAllowedFor (HomeR)    "GET"                = Unauthenticated
+    actionAllowedFor (AdminHomeRedirectR) "GET"      = Unauthenticated
+    actionAllowedFor (AuthR _)  _                    = Unauthenticated
+    actionAllowedFor (CoreAdminR (AdminStaticR _)) _ = Unauthenticated
+    actionAllowedFor (CoreAdminR _) _                = Authenticated
+    actionAllowedFor _          _                    = Nobody -- allow no one by default.
+
+    coreR = CoreAdminR
+    authR = AuthR
+    masterHomeR = HomeR
+
+    getUserRoles userId = do
+        v <- runDB $ selectList [UserRoleUserId ==. userId] []
+        return . S.fromList $ map (userRoleRoleName . entityVal) v
+
+    setUserRoles userId rs = runDB $ do
+        deleteWhere [UserRoleUserId ==. userId]
+        mapM_ (insert_ . UserRole userId) $ S.toList rs
+
+    adminMenu =  (defaultCoreAdminMenu CoreAdminR)
+    renderLanguages _ = ["en", "nl"]
+
+    mayAssignRoles = return True

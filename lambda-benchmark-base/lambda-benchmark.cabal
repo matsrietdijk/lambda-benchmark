@@ -20,6 +20,7 @@ library
                      Settings.StaticFiles
                      Handler.Common
                      Handler.Home
+                     Roles
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
@@ -79,6 +80,8 @@ library
                  , containers
                  , vector
                  , time
+                 , lambdacms-core
+                 , wai
 
 executable         lambda-benchmark
     if flag(library-only)
