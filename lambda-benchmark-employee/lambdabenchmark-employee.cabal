@@ -1,0 +1,45 @@
+name:               lambdabenchmark-employee
+version:            0.0.0
+license:            MIT
+license-file:       LICENSE
+author:
+maintainer:
+copyright:          (c) 2015
+bug-reports:
+homepage:
+synopsis:           LambdaBenchmark Employee
+description:        Content Management System (CMS) Employee Extension
+stability:          alpha
+category:           web
+build-type:         Simple
+cabal-version:      >= 1.18
+tested-with:        GHC >= 7.6
+extra-source-files: README.md
+                  , templates/*
+                  , config/*
+
+source-repository head
+  type:             git
+  location:
+
+library
+  default-language: Haskell2010
+
+  exposed-modules:  LambdaBenchmark.Employee
+                  , LambdaBenchmark.Employee.Message
+
+  other-modules:    LambdaBenchmark.Employee.Foundation
+                  , LambdaBenchmark.Employee.Models
+                  , LambdaBenchmark.Employee.Import
+                  , LambdaBenchmark.Employee.Handler.Employee
+
+  build-depends:    base
+                  , yesod
+                  , yesod-form
+                  , lambdacms-core
+                  , persistent
+                  , text
+                  , time
+                  , shakespeare
+
+  ghc-options:      -Wall -O2

@@ -1,0 +1,3 @@
+/                 EmployeeAdminIndexR   GET
+/new              EmployeeAdminNewR     GET POST
+!/#EmployeeId        EmployeeAdminEditR    GET PATCH DELETE

@@ -1,0 +1,3 @@
+/                 ProjectAdminIndexR   GET
+/new              ProjectAdminNewR     GET POST
+!/#ProjectId        ProjectAdminEditR    GET PATCH DELETE

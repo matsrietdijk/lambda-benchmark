@@ -1,0 +1,33 @@
+<div .row>
+    <div .col-xs-12>
+        $maybe r <- can (coreR AdminHomeR) "GET"
+            <a href=@{r}>
+                <span .glyphicon .glyphicon-arrow-left>
+                _{Msg.Back}
+<div .page-header>
+    <h1>_{Msg.ProjectIndex}
+    $maybe r <- can (projectR ProjectAdminNewR) "GET"
+        <a .btn .btn-primary .btn-xs href=@{r}>
+            <span .glyphicon .glyphicon-plus>
+            _{Msg.NewProject}
+<div .row>
+    <div .col-xs-12>
+        $if null projects
+            <p .alert .alert-info>_{Msg.NoProjectsFound}
+        $else
+            <div .table-responsive>
+                <table .table .table-striped .table-hover>
+                    <thead>
+                        <tr>
+                            <th>_{Msg.Title}
+                            <th>_{Msg.CreatedOn}
+                    <tbody>
+                        $forall (Entity projectId project) <- projects
+                            $with mroute <- can (projectR $ ProjectAdminEditR projectId) "GET"
+                                <tr :isJust mroute:onclick="document.location.href='@{fromJust mroute}'">
+                                    <td>
+                                        $maybe r <- mroute
+                                            <a href=@{r}>#{projectTitle project}
+                                        $nothing
+                                            #{projectTitle project}
+                                    <td>#{show $ utctDay $ projectCreatedAt project}

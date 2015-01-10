@@ -1,0 +1,32 @@
+<div .row>
+    <div .col-xs-12>
+        $maybe r <- can (employeeR EmployeeAdminIndexR) "GET"
+            <a href=@{r}>
+                <span .glyphicon .glyphicon-arrow-left>
+                _{Msg.Back}
+<div .page-header>
+    <h1>_{Msg.EditEmployee}
+    $maybe r <- can (employeeR $ EmployeeAdminEditR employeeId) "DELETE"
+        <form .form-inline .display-inline method=POST action=@{r}>
+            <input name="_method" type="hidden" value="DELETE" />
+            <button .btn .btn-danger type=submit>
+                <span .glyphicon .glyphicon-remove>
+                _{Msg.Delete}
+<div .row>
+    <div .col-sm-12 .col-md-9 .col-lg-6>
+        <div .table-responsive>
+            <table .table .table-striped>
+                <tbody>
+                    <tr>
+                        <td>_{Msg.Title}
+                        <td .text-right>#{employeeTitle employee}
+                    <tr>
+                        <td>_{Msg.CreatedOn}
+                        <td .text-right>#{show $ utctDay $ employeeCreatedAt employee}
+<div .row>
+    <div .col-sm-12 .col-md-9 .col-lg-6>
+        $maybe r <- can (employeeR $ EmployeeAdminEditR employeeId) "PATCH"
+            <h2>_{Msg.ChangeEmployeeSettings}
+            <form role=form method=POST action=@{r} enctype=#{enctype}>
+                <input name="_method" type="hidden" value="PATCH" />
+                ^{fWidget}

@@ -1,0 +1,33 @@
+<div .row>
+    <div .col-xs-12>
+        $maybe r <- can (coreR AdminHomeR) "GET"
+            <a href=@{r}>
+                <span .glyphicon .glyphicon-arrow-left>
+                _{Msg.Back}
+<div .page-header>
+    <h1>_{Msg.EmployeeIndex}
+    $maybe r <- can (employeeR EmployeeAdminNewR) "GET"
+        <a .btn .btn-primary .btn-xs href=@{r}>
+            <span .glyphicon .glyphicon-plus>
+            _{Msg.NewEmployee}
+<div .row>
+    <div .col-xs-12>
+        $if null employees
+            <p .alert .alert-info>_{Msg.NoEmployeesFound}
+        $else
+            <div .table-responsive>
+                <table .table .table-striped .table-hover>
+                    <thead>
+                        <tr>
+                            <th>_{Msg.Title}
+                            <th>_{Msg.CreatedOn}
+                    <tbody>
+                        $forall (Entity employeeId employee) <- employees
+                            $with mroute <- can (employeeR $ EmployeeAdminEditR employeeId) "GET"
+                                <tr :isJust mroute:onclick="document.location.href='@{fromJust mroute}'">
+                                    <td>
+                                        $maybe r <- mroute
+                                            <a href=@{r}>#{employeeTitle employee}
+                                        $nothing
+                                            #{employeeTitle employee}
+                                    <td>#{show $ utctDay $ employeeCreatedAt employee}

@@ -1,0 +1,4 @@
+Employee
+    title Text
+    createdAt UTCTime
+    deriving Typeable Show
