@@ -1,4 +1,7 @@
 Project
     title Text
+    content Textarea
+    url Text
+    customer Text
     createdAt UTCTime
     deriving Typeable Show

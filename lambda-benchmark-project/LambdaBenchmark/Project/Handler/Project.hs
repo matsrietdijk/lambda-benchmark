@@ -88,5 +88,8 @@ deleteProjectAdminEditR projectId = do
 projectForm :: Maybe Project -> UTCTime -> ProjectForm Project
 projectForm mProject utct = renderBootstrap3 BootstrapBasicForm $ Project
     <$> areq textField (bfs Msg.Title) (projectTitle <$> mProject)
+    <*> areq textareaField (bfs Msg.Content) (projectContent <$> mProject)
+    <*> areq textField (bfs Msg.Url) (projectUrl <$> mProject)
+    <*> areq textField (bfs Msg.Customer) (projectCustomer <$> mProject)
     <*> pure (fromMaybe utct $ projectCreatedAt <$> mProject)
     <*  bootstrapSubmit (BootstrapSubmit Msg.Save " btn-success " [])

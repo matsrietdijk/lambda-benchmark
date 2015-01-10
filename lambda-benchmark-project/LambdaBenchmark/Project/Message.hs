@@ -25,6 +25,9 @@ data ProjectMessage =
   | CreatedOn
   | ChangeProjectSettings
   | NoProjectsFound
+  | Content
+  | Url
+  | Customer
 
 defaultMessage :: ProjectMessage -> Text
 defaultMessage = englishMessage
@@ -44,3 +47,6 @@ englishMessage Delete                = "Delete"
 englishMessage CreatedOn             = "Created on"
 englishMessage ChangeProjectSettings = "Change project settings"
 englishMessage NoProjectsFound       = "No projects found"
+englishMessage Content               = "Content"
+englishMessage Url               = "Url"
+englishMessage Customer               = "Customer"
