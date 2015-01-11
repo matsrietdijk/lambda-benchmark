@@ -80,12 +80,15 @@ instance Yesod App where
     authRoute _ = Just $ AuthR LoginR
 
     -- Routes not requiring authentication.
-    isAuthorized theRoute _ = do
-        mauthId <- maybeAuthId
-        wai <- waiRequest
-        y <- getYesod
-        murs <- mapM getUserRoles mauthId
-        return $ isAuthorizedTo y murs $ actionAllowedFor theRoute (W.requestMethod wai)
+    isAuthorized theRoute _ = case theRoute of
+        (StaticR _) -> return Authorized
+        (CoreAdminR (AdminStaticR _)) -> return Authorized
+        _ -> do
+            mauthId <- maybeAuthId
+            wai <- waiRequest
+            y <- getYesod
+            murs <- mapM getUserRoles mauthId
+            return $ isAuthorizedTo y murs $ actionAllowedFor theRoute (W.requestMethod wai)
 
     -- This function creates static content files in the static folder
     -- and names them based on a hash of their content. This allows
