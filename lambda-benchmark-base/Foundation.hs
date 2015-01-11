@@ -84,11 +84,10 @@ instance Yesod App where
         (StaticR _) -> return Authorized
         (CoreAdminR (AdminStaticR _)) -> return Authorized
         _ -> do
-            mauthId <- maybeAuthId
-            wai <- waiRequest
+            method <- waiRequest >>= return . W.requestMethod
             y <- getYesod
-            murs <- mapM getUserRoles mauthId
-            return $ isAuthorizedTo y murs $ actionAllowedFor theRoute (W.requestMethod wai)
+            murs <- maybeAuthId >>= mapM getUserRoles
+            return $ isAuthorizedTo y murs $ actionAllowedFor theRoute method
 
     -- This function creates static content files in the static folder
     -- and names them based on a hash of their content. This allows
