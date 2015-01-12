@@ -132,3 +132,4 @@ test-suite test
                  , hspec
                  , classy-prelude
                  , classy-prelude-yesod
+                 , lambdacms-core
