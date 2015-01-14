@@ -28,6 +28,8 @@ data EmployeeMessage =
   | Content
   | Firstname
   | Lastname
+  | Lang
+  | Ident
 
 defaultMessage :: EmployeeMessage -> Text
 defaultMessage = englishMessage
@@ -50,3 +52,5 @@ englishMessage NoEmployeesFound       = "No employees found"
 englishMessage Content                = "Content"
 englishMessage Firstname                = "Firstname"
 englishMessage Lastname                = "Lastname"
+englishMessage Lang               = "Language"
+englishMessage Ident               = "Translation id"

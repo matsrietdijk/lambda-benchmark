@@ -1,7 +1,9 @@
 Project
+    ident Text
     title Text
     content Textarea
     url Text
     customer Text
+    lang Text
     createdAt UTCTime
     deriving Typeable Show

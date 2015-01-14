@@ -28,6 +28,8 @@ data ProjectMessage =
   | Content
   | Url
   | Customer
+  | Lang
+  | Ident
 
 defaultMessage :: ProjectMessage -> Text
 defaultMessage = englishMessage
@@ -50,3 +52,5 @@ englishMessage NoProjectsFound       = "No projects found"
 englishMessage Content               = "Content"
 englishMessage Url               = "Url"
 englishMessage Customer               = "Customer"
+englishMessage Lang               = "Language"
+englishMessage Ident               = "Translation id"
