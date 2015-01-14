@@ -4,22 +4,22 @@
 
 ```bash
 echo " \
-  create database 'lambda-benchmark'; \
-  create user 'lambda-benchmark' with password 'lambda-benchmark'; \
-  grant all on 'lambda-benchmark' to 'lambda-benchmark';" \
+  create database \"lambda-benchmark\"; \
+  create user \"lambda-benchmark\" with password 'lambda-benchmark'; \
+  grant all on database \"lambda-benchmark\" to \"lambda-benchmark\";" \
   | psql
 ```
 
 ## install yesod app
 
-run the following commands: 
+run the following commands:
 
 ```fish
 cd lambda-benchmark-project; and cabal install
 
 cd ../lambda-benchmark-employee; and cabal install
 
-cd ../lambda-benchmark-base; and cabal install; and yesod devel 
+cd ../lambda-benchmark-base; and cabal install; and yesod devel
 ```
 
 ## Generate dummy content
