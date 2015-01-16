@@ -8,10 +8,12 @@ module Application
 
 import           Control.Monad.Logger                      (liftLoc,
                                                             runLoggingT)
-import           Database.Persist.Postgresql               (createPostgresqlPool,
-                                                            pgConnStr,
-                                                            pgPoolSize,
-                                                            runSqlPool)
+-- import           Database.Persist.Postgresql               (createPostgresqlPool,
+--                                                             pgConnStr,
+--                                                             pgPoolSize,
+--                                                             runSqlPool)
+import Database.Persist.MySQL               (createMySQLPool, myConnInfo,
+                                             myPoolSize, runSqlPool)
 import           Import
 import           LambdaCms.Core
 import           LambdaBenchmark.Employee
@@ -83,9 +85,12 @@ makeFoundation appSettings' = do
         logFunc = messageLoggerSource tempFoundation appLogger'
 
     -- Create the database connection pool
-    pool <- flip runLoggingT logFunc $ createPostgresqlPool
-        (pgConnStr  $ appDatabaseConf appSettings')
-        (pgPoolSize $ appDatabaseConf appSettings')
+    -- pool <- flip runLoggingT logFunc $ createPostgresqlPool
+    --     (pgConnStr  $ appDatabaseConf appSettings')
+    --     (pgPoolSize $ appDatabaseConf appSettings')
+    pool <- flip runLoggingT logFunc $ createMySQLPool
+        (myConnInfo $ appDatabaseConf appSettings')
+        (myPoolSize $ appDatabaseConf appSettings')
 
     let theFoundation = mkFoundation pool
     runLoggingT

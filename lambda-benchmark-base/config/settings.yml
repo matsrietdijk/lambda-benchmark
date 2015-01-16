@@ -15,13 +15,20 @@ admin:          "_env:ADMIN:mats@hoppinger.com"
 # mutable-static: false
 # skip-combining: false
 
+# database:
+#   user:     "_env:PGUSER:lambda-benchmark"
+#   password: "_env:PGPASS:lambda-benchmark"
+#   host:     "_env:PGHOST:localhost"
+#   port:     "_env:PGPORT:5432"
+#   database: "_env:PGDATABASE:lambda-benchmark"
+#   poolsize: "_env:PGPOOLSIZE:10"
 database:
-  user:     "_env:PGUSER:lambda-benchmark"
-  password: "_env:PGPASS:lambda-benchmark"
-  host:     "_env:PGHOST:localhost"
-  port:     "_env:PGPORT:5432"
-  database: "_env:PGDATABASE:lambda-benchmark"
-  poolsize: "_env:PGPOOLSIZE:10"
+  user:     "_env:MYSQL_USER:lambda_benchmark"
+  password: "_env:MYSQL_PASSWORD:lambda_benchmark"
+  host:     "_env:MYSQL_HOST:localhost"
+  port:     "_env:MYSQL_PORT:5432"
+  database: "_env:MYSQL_DATABASE:lambda_benchmark"
+  poolsize: "_env:MYSQL_POOLSIZE:10"
 
 copyright: Insert copyright statement here
 #analytics: UA-YOURCODE

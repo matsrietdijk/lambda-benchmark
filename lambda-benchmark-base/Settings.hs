@@ -11,7 +11,8 @@ import Data.Aeson                  (Result (..), fromJSON, withObject, (.!=),
                                     (.:?))
 import Data.FileEmbed              (embedFile)
 import Data.Yaml                   (decodeEither')
-import Database.Persist.Postgresql (PostgresConf)
+-- import Database.Persist.Postgresql (PostgresConf)
+import Database.Persist.MySQL     (MySQLConf)
 import Language.Haskell.TH.Syntax  (Exp, Name, Q)
 import Network.Wai.Handler.Warp    (HostPreference)
 import Yesod.Default.Config2       (applyEnvValue, configSettingsYml)
@@ -24,7 +25,8 @@ import Yesod.Default.Util          (WidgetFileSettings, widgetFileNoReload,
 data AppSettings = AppSettings
     { appStaticDir              :: String
     -- ^ Directory from which to serve static files.
-    , appDatabaseConf           :: PostgresConf
+    -- , appDatabaseConf           :: PostgresConf
+    , appDatabaseConf           :: MySQLConf
     -- ^ Configuration settings for accessing the database.
     , appRoot                   :: Text
     -- ^ Base for all generated URLs.

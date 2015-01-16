@@ -4,10 +4,10 @@
 
 ```bash
 echo " \
-  create database \"lambda-benchmark\"; \
-  create user \"lambda-benchmark\" with password 'lambda-benchmark'; \
-  grant all on database \"lambda-benchmark\" to \"lambda-benchmark\";" \
-  | psql
+  create database lambda_benchmark; \
+  grant all privileges on lambda_benchmark.* to \
+  lambda_benchmark@localhost identified by 'lambda_benchmark'; " \
+  | mysql -uroot -p
 ```
 
 ## install yesod app
@@ -28,13 +28,15 @@ cd ../lambda-benchmark-base; and cabal install; and yesod devel
 for l in 'en' 'nl'; \
     set lorem (curl http://www.loripsum.net/api/4); \
     for i in (seq 20); \
-        psql 'lambda-benchmark' -c "insert into employee (ident, title, content, firstname, lastname, lang, created_at) \
-        values ('$i', 'Employee $i', '$lorem', 'Voornaam', 'Achternaam', '$l', current_date);"; \
+        echo "insert into lambda_benchmark.employee (ident, title, content, firstname, lastname, lang) \
+        values ('$i', 'Employee $i', '$lorem', 'Voornaam', 'Achternaam', '$l');" \
+        | mysql -ulambda_benchmark -plambda_benchmark; \
     end; \
     set lorem (curl http://www.loripsum.net/api/6); \
     for i in (seq 15); \
-        psql 'lambda-benchmark' -c "insert into project (ident, title, content, url, customer, lang, created_at) \
-        values ('$i', 'Project $i', '$lorem', 'http://dummy.url', 'Klant', '$l', current_date);"; \
+        echo "insert into lambda_benchmark.project (ident, title, content, url, customer, lang) \
+        values ('$i', 'Project $i', '$lorem', 'http://dummy.url', 'Klant', '$l');" \
+        | mysql -ulambda_benchmark -plambda_benchmark; \
     end; \
 end
 ```
