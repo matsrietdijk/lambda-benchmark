@@ -1,0 +1,132 @@
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 1 concurrent requests, 10000 total requests
+spawning thread #2: 1 concurrent requests, 10000 total requests
+spawning thread #3: 1 concurrent requests, 10000 total requests
+spawning thread #4: 1 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 150 sec, 339 millisec and 273 microsec, 266 req/s, 1388 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 5 concurrent requests, 10000 total requests
+spawning thread #2: 5 concurrent requests, 10000 total requests
+spawning thread #3: 5 concurrent requests, 10000 total requests
+spawning thread #4: 5 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 172 sec, 22 millisec and 527 microsec, 232 req/s, 1213 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 10 concurrent requests, 10000 total requests
+spawning thread #2: 10 concurrent requests, 10000 total requests
+spawning thread #3: 10 concurrent requests, 10000 total requests
+spawning thread #4: 10 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 190 sec, 449 millisec and 776 microsec, 210 req/s, 1095 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 15 concurrent requests, 10000 total requests
+spawning thread #2: 15 concurrent requests, 10000 total requests
+spawning thread #3: 15 concurrent requests, 10000 total requests
+spawning thread #4: 15 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 207 sec, 660 millisec and 975 microsec, 192 req/s, 1005 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 20 concurrent requests, 10000 total requests
+spawning thread #2: 20 concurrent requests, 10000 total requests
+spawning thread #3: 20 concurrent requests, 10000 total requests
+spawning thread #4: 20 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 210 sec, 838 millisec and 670 microsec, 189 req/s, 989 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
+weighttp - a lightweight and simple webserver benchmarking tool
+
+starting benchmark...
+spawning thread #1: 25 concurrent requests, 10000 total requests
+spawning thread #2: 25 concurrent requests, 10000 total requests
+spawning thread #3: 25 concurrent requests, 10000 total requests
+spawning thread #4: 25 concurrent requests, 10000 total requests
+progress:  10% done
+progress:  20% done
+progress:  30% done
+progress:  40% done
+progress:  50% done
+progress:  60% done
+progress:  70% done
+progress:  80% done
+progress:  90% done
+progress: 100% done
+
+finished in 207 sec, 881 millisec and 182 microsec, 192 req/s, 1003 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 39981 succeeded, 19 failed, 0 errored
+status codes: 39981 2xx, 0 3xx, 0 4xx, 19 5xx
+traffic: 213653994 bytes total, 18226866 bytes http, 195427128 bytes data
