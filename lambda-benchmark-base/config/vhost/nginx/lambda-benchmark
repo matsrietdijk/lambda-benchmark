@@ -1,0 +1,13 @@
+server {
+    listen 80;
+
+    server_name lambda.benchmark.local;
+
+    location / {
+        proxy_pass http://127.0.0.1:3001;
+    }
+
+    location /static {
+        root /var/www/lambda/lambda-benchmark-base/static;
+    }
+}
