@@ -16,7 +16,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 150 sec, 339 millisec and 273 microsec, 266 req/s, 1388 kbyte/s
+finished in 157 sec, 322 millisec and 327 microsec, 254 req/s, 1326 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -38,7 +38,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 172 sec, 22 millisec and 527 microsec, 232 req/s, 1213 kbyte/s
+finished in 173 sec, 581 millisec and 799 microsec, 230 req/s, 1202 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -60,7 +60,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 190 sec, 449 millisec and 776 microsec, 210 req/s, 1095 kbyte/s
+finished in 172 sec, 454 millisec and 612 microsec, 231 req/s, 1210 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -82,7 +82,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 207 sec, 660 millisec and 975 microsec, 192 req/s, 1005 kbyte/s
+finished in 170 sec, 632 millisec and 261 microsec, 234 req/s, 1223 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -104,7 +104,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 210 sec, 838 millisec and 670 microsec, 189 req/s, 989 kbyte/s
+finished in 166 sec, 987 millisec and 226 microsec, 239 req/s, 1249 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -126,7 +126,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 207 sec, 881 millisec and 182 microsec, 192 req/s, 1003 kbyte/s
-requests: 40000 total, 40000 started, 40000 done, 39981 succeeded, 19 failed, 0 errored
-status codes: 39981 2xx, 0 3xx, 0 4xx, 19 5xx
-traffic: 213653994 bytes total, 18226866 bytes http, 195427128 bytes data
+finished in 169 sec, 490 millisec and 896 microsec, 236 req/s, 1231 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data

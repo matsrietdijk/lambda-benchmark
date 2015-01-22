@@ -16,7 +16,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 154 sec, 602 millisec and 44 microsec, 258 req/s, 1349 kbyte/s
+finished in 146 sec, 114 millisec and 691 microsec, 273 req/s, 1428 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -38,7 +38,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 177 sec, 796 millisec and 633 microsec, 224 req/s, 1173 kbyte/s
+finished in 166 sec, 748 millisec and 502 microsec, 239 req/s, 1251 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -60,7 +60,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 174 sec, 121 millisec and 350 microsec, 229 req/s, 1198 kbyte/s
+finished in 164 sec, 379 millisec and 704 microsec, 243 req/s, 1269 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -82,7 +82,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 184 sec, 329 millisec and 679 microsec, 217 req/s, 1132 kbyte/s
+finished in 169 sec, 964 millisec and 759 microsec, 235 req/s, 1227 kbyte/s
 requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
 status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
@@ -104,10 +104,10 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 197 sec, 895 millisec and 168 microsec, 202 req/s, 1054 kbyte/s
-requests: 40000 total, 40000 started, 40000 done, 39998 succeeded, 2 failed, 0 errored
-status codes: 39998 2xx, 0 3xx, 0 4xx, 2 5xx
-traffic: 213713052 bytes total, 18202828 bytes http, 195510224 bytes data
+finished in 167 sec, 918 millisec and 424 microsec, 238 req/s, 1242 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
 weighttp - a lightweight and simple webserver benchmarking tool
 
 starting benchmark...
@@ -126,7 +126,7 @@ progress:  80% done
 progress:  90% done
 progress: 100% done
 
-finished in 204 sec, 320 millisec and 717 microsec, 195 req/s, 1021 kbyte/s
-requests: 40000 total, 40000 started, 40000 done, 39981 succeeded, 19 failed, 0 errored
-status codes: 39981 2xx, 0 3xx, 0 4xx, 19 5xx
-traffic: 213653994 bytes total, 18226866 bytes http, 195427128 bytes data
+finished in 173 sec, 611 millisec and 617 microsec, 230 req/s, 1202 kbyte/s
+requests: 40000 total, 40000 started, 40000 done, 40000 succeeded, 0 failed, 0 errored
+status codes: 40000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 213720000 bytes total, 18200000 bytes http, 195520000 bytes data
